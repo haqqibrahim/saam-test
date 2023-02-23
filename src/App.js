@@ -7,7 +7,7 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://c69f-154-113-158-227.eu.ngrok.io", {
+    fetch("http://localhost:3001/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,8 +40,8 @@ export default function App() {
       <p>Conversation</p>
       {chats.map((chat, index) => (
         <div key={index}>
-          <p>message: {chat.message}</p>
-          <p>response: {chat.response}</p>
+          <p>User: {chat.message}</p>
+          <p>SAAM: {chat.response}</p>
         </div>
       ))}
     </div>
