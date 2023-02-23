@@ -9,7 +9,7 @@ const port = 3001;
 
 const configuration = new Configuration({
   organization: "org-zhWPrFotmwZdyfxcurXuK3rN",
-  apiKey: "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",
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -33,7 +33,7 @@ app.post("/", async (req, res) => {
     person: ${message}? 
     SAAM:
     `,
-    max_tokens: 200,
+    max_tokens: 100,
     temperature: 0,
   });
   console.log(response.data);

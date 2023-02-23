@@ -7,7 +7,7 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/", {
+    fetch("https://c69f-154-113-158-227.eu.ngrok.io/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
