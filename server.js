@@ -8,8 +8,8 @@ const cors = require("cors");
 const port = 3001;
 
 const configuration = new Configuration({
-  organization: "org-zhWPrFotmwZdyfxcurXuK3rN",
-  apiKey: "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",
+    organization: "org-zhWPrFotmwZdyfxcurXuK3rN",
+      apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -33,7 +33,7 @@ app.post("/", async (req, res) => {
     person: ${message}? 
     SAAM:
     `,
-    max_tokens: 100,
+    max_tokens: 7,
     temperature: 0,
   });
   console.log(response.data);
