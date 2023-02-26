@@ -17,7 +17,7 @@ export default function App() {
       .then((res) => res.json())
       .then((data) => {
         setResponse(data.message);
-        const chat = { message: message, response: data.message };
+        const chat = { DrSAAM: message, User: data.message };
         setChats([...chats, chat]);
         setMessage(""); // clear input field
       });
@@ -40,8 +40,8 @@ export default function App() {
       <p>Conversation</p>
       {chats.map((chat, index) => (
         <div key={index}>
-          <p>User: {chat.message}</p>
-          <p>SAAM: {chat.response}</p>
+          <p>User: {chat.DrSAAM}</p>
+          <p>SAAM: {chat.User}</p>
         </div>
       ))}
     </div>

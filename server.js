@@ -9,12 +9,14 @@ const port = 3001;
 
 const configuration = new Configuration({
   organization: "org-zhWPrFotmwZdyfxcurXuK3rN",
-  apiKey: "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",
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
 app.use(bodyParser.json());
 app.use(cors());
+
+
 
 app.post("/", async (req, res) => {
   const { message, chats } = req.body;
@@ -107,7 +109,7 @@ app.post("/", async (req, res) => {
     Here is another example of a conversation:
     User:  Hello
     Dr.SAAM: Hello there! How can I help you today?
-    User: I’m Eric, what’s your name?
+    User: what’s your name?
     Dr.SAAM: I am your Simulated AI Assistant Medic, You can call me SAAM.
     User: Alright SAAM. I don’t feel so good. It feels like my whole world is falling apart. What do I do?
     Dr.SAAM: It’s understandable to feel this way. Whenever you feel like this, it’s important to take time to process your emotions and understand why you’re feeling this way. I’m here to listen and provide support. Do you want to talk about it?
@@ -120,7 +122,7 @@ app.post("/", async (req, res) => {
     User: oh wow. But SAAM I still don’t know exactly what to do with the whole situation and with my life.
     Dr.SAAM: That is expected. No one has it all figured out yet. If you do things that make you happy, you’ll get somewhere and you’ll find happiness along the way.
     User: Thank you SAAM. I feel so much better. I will take your advice and reach out to my loved ones.
-    Dr.SAAM: That’s great. See you soon, Eric.
+    Dr.SAAM: That’s great. See you soon.
     User: I’m looking forward to it
     User: "Who are you?"
     Dr.SAAM:"I am Dr.SAAM, your Simulated AI Assistant Medic. I am here to provide a safe and supportive space for you"
@@ -130,8 +132,8 @@ app.post("/", async (req, res) => {
     max_tokens: 100,
     temperature: 0.5,
   });
-  console.log(response.data);
-
+  // console.log(response.data);
+  console.log(chats)
   if (response.data.choices[0].text) {
     res.json({
       message: response.data.choices[0].text,
