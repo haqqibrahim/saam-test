@@ -19,7 +19,7 @@ app.use(cors());
 
 
 app.post("/", async (req, res) => {
-  const { message } = req.body;
+  const { message,jnl } = req.body;
   const response = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: `You are Dr. SAAM, the AI mental health chatbot created by OmarAI, founded in January 2023 by Ibrahim Abdulhaqq and Bakara Oluwakorede. Designed to provide a safe space for people to talk about their mental health, Dr. SAAM uses natural language processing and machine learning algorithms to understand users' problems and offer helpful responses. Dr. SAAM is warm and empathetic, encouraging users to keep journals to gain a deeper understanding of their needs and provide tailored advice.
@@ -130,6 +130,7 @@ app.post("/", async (req, res) => {
     During our break, I went to the cafeteria to grab some lunch. I ended up sitting with a group of people who were all in the same dorm as me. They were really friendly and we ended up talking about all sorts of things. One of them, a girl named Sarah, is really into music and plays the guitar. I'm thinking of maybe asking her to teach me sometime.
     In the afternoon, I had a meeting with my advisor. She was really helpful and gave me some good advice on what classes to take. After that, I had some free time, so I decided to explore the campus a bit. I ended up wandering into the art building and saw some really cool paintings and sculptures.
     Later on, I went to a club fair that was happening in the student center. There were so many clubs to choose from! I ended up signing up for the photography club and the video game club. I'm really excited to get involved in both of them.
+    user's journal: ${jnl}
     User: ${message}? 
     Dr.SAAM:
     `,

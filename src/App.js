@@ -13,7 +13,7 @@ export default function App() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ message, chats }),
+      body: JSON.stringify({ message, jnl }),
     })
       .then((res) => res.json())
       .then((data) => {
