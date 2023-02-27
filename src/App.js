@@ -8,7 +8,7 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://e253-154-113-158-227.eu.ngrok.io", {
+    fetch("https://d547-154-113-158-227.eu.ngrok.io", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export default function App() {
         setResponse(data.message);
         const chat = { message: message, response: data.message };
         setChats([...chats, chat]);
-        setJnl("")
+        // setJnl("")
         setMessage(""); // clear input field
       });
       console.log(response)
@@ -30,6 +30,7 @@ export default function App() {
     <div>
       <h1>Dr.SAAM Prototype Test 1</h1>
       <p>Just type into the box to start a conversation</p>
+      <p>Type into the journal box to add your journal to SAAM</p>
       <form onSubmit={handleSubmit}>
         <textarea
           value={message}
