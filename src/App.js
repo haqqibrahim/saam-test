@@ -20,6 +20,7 @@ export default function App() {
         setResponse(data.message);
         const chat = { message: message, response: data.message };
         setChats([...chats, chat]);
+        setJnl("")
         setMessage(""); // clear input field
       });
       console.log(response)

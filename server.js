@@ -9,7 +9,7 @@ const port = 3001;
 
 const configuration = new Configuration({
   organization: "org-zhWPrFotmwZdyfxcurXuK3rN",
-  apiKey: "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",
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -137,7 +137,7 @@ app.post("/", async (req, res) => {
     max_tokens: 100,
     temperature: 0.5,
   });
-  // console.log(response.data);
+  console.log(response.data);
   if (response.data.choices[0].text) {
     res.json({
       message: response.data.choices[0].text,
