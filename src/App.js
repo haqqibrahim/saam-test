@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export default function App() {
   const [message, setMessage] = useState("");
   const [response, setResponse] = useState("");
+  const [jnl, setJnl] = useState("")
   const [chats, setChats] = useState([]);
 
   const handleSubmit = (e) => {
@@ -17,7 +18,7 @@ export default function App() {
       .then((res) => res.json())
       .then((data) => {
         setResponse(data.message);
-        const chat = { DrSAAM: message, User: data.message };
+        const chat = { message: message, response: data.message };
         setChats([...chats, chat]);
         setMessage(""); // clear input field
       });
@@ -34,14 +35,19 @@ export default function App() {
           placeholder="type"
           onChange={(e) => setMessage(e.target.value)}
         ></textarea>
+        <textarea
+          value={jnl}
+          placeholder="Journal"
+          onChange={(e) => setJnl(e.target.value)}
+        ></textarea>
         <br />
         <button type="submit">Submit</button>
       </form>
       <p>Conversation</p>
       {chats.map((chat, index) => (
         <div key={index}>
-          <p>User: {chat.DrSAAM}</p>
-          <p>SAAM: {chat.User}</p>
+          <p>User: {chat.message}</p>
+          <p>SAAM: {chat.response}</p>
         </div>
       ))}
     </div>
