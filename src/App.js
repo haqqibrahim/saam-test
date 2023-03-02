@@ -3,12 +3,12 @@ import React, { useState } from "react";
 export default function App() {
   const [message, setMessage] = useState("");
   const [response, setResponse] = useState("");
-  const [jnl, setJnl] = useState("")
+  // const [jnl, setJnl] = useState("")
   const [chats, setChats] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(" https://7d98-154-113-158-227.eu.ngrok.io/gpt", {
+    fetch("https://2cff-154-113-158-227.eu.ngrok.io/gpt", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,25 +23,24 @@ export default function App() {
         // setJnl("")
         setMessage(""); // clear input field
       });
-      console.log(response)
-
+    console.log(response);
   };
   return (
     <div>
       <h1>SAAM Prototype Test 1</h1>
       <p>Just type into the box to start a conversation</p>
-      <p>Type into the journal box to add your journal to SAAM</p>
+      {/* <p>Type into the journal box to add your journal to SAAM</p> */}
       <form onSubmit={handleSubmit}>
         <textarea
           value={message}
           placeholder="type"
           onChange={(e) => setMessage(e.target.value)}
         ></textarea>
-        <textarea
+        {/* <textarea
           value={jnl}
           placeholder="Journal"
           onChange={(e) => setJnl(e.target.value)}
-        ></textarea>
+        ></textarea> */}
         <br />
         <button type="submit">Submit</button>
       </form>
