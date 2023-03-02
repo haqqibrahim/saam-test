@@ -13,17 +13,17 @@ export default function App() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ message, chats }),
     })
       .then((res) => res.json())
       .then((data) => {
         setResponse(data.message);
-        const chat = { message: message, response: data.message };
+        const chat = { user: message, assistant: data.message };
         setChats([...chats, chat]);
         // setJnl("")
         setMessage(""); // clear input field
       });
-    console.log(response);
+      console.log(response)
   };
   return (
     <div>
@@ -47,8 +47,8 @@ export default function App() {
       <p>Conversation</p>
       {chats.map((chat, index) => (
         <div key={index}>
-          <p>User: {chat.message}</p>
-          <p>SAAM: {chat.response}</p>
+          <p>User: {chat.user}</p>
+          <p>SAAM: {chat.assistant}</p>
         </div>
       ))}
     </div>
