@@ -8,12 +8,12 @@ export default function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://d547-154-113-158-227.eu.ngrok.io", {
+    fetch(" https://7d98-154-113-158-227.eu.ngrok.io/gpt", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ message, jnl }),
+      body: JSON.stringify({ message }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -28,7 +28,7 @@ export default function App() {
   };
   return (
     <div>
-      <h1>Dr.SAAM Prototype Test 1</h1>
+      <h1>SAAM Prototype Test 1</h1>
       <p>Just type into the box to start a conversation</p>
       <p>Type into the journal box to add your journal to SAAM</p>
       <form onSubmit={handleSubmit}>
